@@ -116,3 +116,7 @@ img {
   left: 124px;
   color: #949aa9;
 }
+.open-source-code-link {
+  position: fixed;
+  top: 450px;
+}
