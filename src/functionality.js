@@ -1,7 +1,6 @@
 let now = new Date();
 
 function showWeather(response) {
-  console.log(response.data);
   let h1 = document.querySelector("h1");
   h1.innerHTML = response.data.name;
   let tempElement = document.querySelector("#current-temp");
@@ -21,6 +20,15 @@ function showWeather(response) {
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = description;
+
+  //Weather Icon
+  let icon = response.data.weather[0].icon;
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", description);
 }
 function search(event) {
   event.preventDefault();

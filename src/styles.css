@@ -78,13 +78,15 @@ img {
   left: 110px;
 }
 .current-weather {
-  text-transform: capitalize;
   font-size: 20px;
   position: fixed;
   left: 115px;
   top: 300px;
   color: #b8bcc4;
   font-style: italic;
+}
+.current-weather:first-letter {
+  text-transform: capitalize;
 }
 .info {
   position: fixed;
