@@ -4,8 +4,8 @@ function showWeather(response) {
   console.log(response.data);
   let h1 = document.querySelector("h1");
   h1.innerHTML = response.data.name;
-  let temp = document.querySelector("#current-temp");
-  temp.innerHTML = Math.round(response.data.main.temp);
+  let tempElement = document.querySelector("#current-temp");
+  tempElement.innerHTML = Math.round(response.data.main.temp);
 
   //Humidity
   let humidity = response.data.main.humidity;
@@ -16,6 +16,11 @@ function showWeather(response) {
   let wind = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = `Wind: ${wind} km/h`;
+
+  //Description
+  let description = response.data.weather[0].description;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = description;
 }
 function search(event) {
   event.preventDefault();
@@ -25,6 +30,7 @@ function search(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${apiUnit}`;
   axios.get(apiUrl).then(showWeather);
 }
+
 // Day
 let days = [
   "Sunday",
