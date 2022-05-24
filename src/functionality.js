@@ -14,7 +14,7 @@ function showWeather(response) {
   //Wind Speed
   let wind = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = `Wind: ${wind} km/h`;
+  windElement.innerHTML = `Wind: ${wind} mph`;
 
   //Description
   let description = response.data.weather[0].description;
