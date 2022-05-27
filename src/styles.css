@@ -121,5 +121,13 @@ img {
 }
 .open-source-code-link {
   position: fixed;
-  top: 450px;
+  top: 335px;
+  color: #7a7c80;
+}
+.link-element {
+  color: #1ab2a8;
+  font-weight: bold;
+}
+.link-element:hover {
+  color: #11726b;
 }
