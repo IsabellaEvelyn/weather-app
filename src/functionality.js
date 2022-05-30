@@ -1,10 +1,12 @@
 let now = new Date();
 
 function showWeather(response) {
+  fahrenheitTemp = response.data.main.temp;
+
   let h1 = document.querySelector("h1");
   h1.innerHTML = response.data.name;
   let tempElement = document.querySelector("#current-temp");
-  tempElement.innerHTML = Math.round(response.data.main.temp);
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
 
   //Humidity
   let humidity = response.data.main.humidity;
@@ -38,6 +40,18 @@ function search(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${apiUnit}`;
   axios.get(apiUrl).then(showWeather);
 }
+function changeUnitToCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  tempElement.innerHTML = Math.round(celsiusTemp);
+}
+function changeUnitToFahrenheit(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+}
+let fahrenheitTemp = null;
 
 // Day
 let days = [
@@ -50,7 +64,7 @@ let days = [
   "Saturday",
 ];
 let currentDay = document.querySelector(".current-day");
-currentDay.innerHTML = days[now.getDay()];
+currentDay.innerHTML = `Last updated ${days[now.getDay()]} at`;
 
 // Change City
 let form = document.querySelector("form");
@@ -62,3 +76,9 @@ currentTime.innerHTML = now.getHours() + ":" + now.getMinutes();
 if (now.getMinutes() < 10) {
   currentTime.innerHTML = now.getHours() + ":0" + now.getMinutes();
 }
+// Change Unit
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", changeUnitToCelsius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", changeUnitToFahrenheit);

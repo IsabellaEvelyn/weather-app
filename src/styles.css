@@ -31,21 +31,22 @@ h1 {
 }
 .current-day {
   position: fixed;
-  left: 380px;
-  top: 160px;
-  font-size: larger;
-  color: #7a7c80;
+  left: 110px;
+  top: 330px;
+  font-size: 18px;
+  color: #b8bcc4;
   font-weight: bold;
+  font-family: monospace;
   font-style: italic;
 }
 .current-time {
   position: fixed;
-  left: 495px;
-  top: 160px;
-  color: #7a7c80;
+  left: 360px;
+  top: 330px;
+  color: #b8bcc4;
   font-weight: bold;
   font-family: monospace;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .display-temperature {
@@ -57,19 +58,29 @@ h1 {
   left: 225px;
 }
 
-.temperature-unit {
+.fahrenheit {
   color: #7a7c80;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 17px;
   position: fixed;
-  left: 310px;
+  left: 305px;
   top: 210px;
-  font-style: italic;
   text-decoration: none;
 }
-.temperature-unit:hover {
-  color: #b3b1b1;
-  cursor: pointer;
+.celsius {
+  color: #7a7c80;
+  font-weight: bold;
+  font-size: 17px;
+  position: fixed;
+  left: 333px;
+  top: 210px;
+  text-decoration: none;
+}
+.fahrenheit:hover {
+  color: #b8bcc4;
+}
+.celcius:hover {
+  color: #b8bcc4;
 }
 img {
   width: 100px;
@@ -101,8 +112,8 @@ img {
 .days {
   word-spacing: 59px;
   position: fixed;
-  top: 330px;
-  left: 122px;
+  top: 300px;
+  left: 100px;
   color: #949aa9;
 }
 .weather-emojis {
@@ -121,7 +132,7 @@ img {
 }
 .open-source-code-link {
   position: fixed;
-  top: 335px;
+  top: 360px;
   color: #7a7c80;
 }
 .link-element {
