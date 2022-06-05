@@ -84,7 +84,7 @@ h1 {
   color: #b8bcc4;
   cursor: default;
 }
-img {
+.current-weather-icon {
   width: 100px;
   position: fixed;
   top: 200px;
@@ -132,9 +132,28 @@ img {
   left: 124px;
   color: #949aa9;
 }
-.open-source-code-link {
+.weather-forecast {
   position: fixed;
   top: 360px;
+  line-height: 20px;
+  left: 120px;
+  color: #7a7c80;
+  font-weight: bold;
+}
+.weather-forecast-temps {
+  position: fixed;
+  top: 460px;
+  left: 114px;
+  color: #7a7c80;
+}
+.forecast-image-1 {
+  position: fixed;
+  top: 380px;
+  left: 95px;
+}
+.open-source-code-link {
+  position: fixed;
+  top: 490px;
   color: #7a7c80;
 }
 .link-element {
