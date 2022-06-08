@@ -51,10 +51,34 @@ function changeUnitToFahrenheit(event) {
   let tempElement = document.querySelector("#current-temp");
   tempElement.innerHTML = Math.round(fahrenheitTemp);
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    `
+      <div class="col-2">
+        <div class="forecast-day">Tue</div>
+        <img
+          src="http://openweathermap.org/img/wn/04n@2x.png"
+          alt=""
+          width="75"
+        />
+        <div class="forecast-temps">
+          <span class="forecast-temp-max"> 18° </span>
+          <span class="forecast-temp-min"> 12° </span>
+        </div>
+      </div>
+  `;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let fahrenheitTemp = null;
 
 // Day
-let days = [
+let day = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -64,7 +88,7 @@ let days = [
   "Saturday",
 ];
 let currentDay = document.querySelector(".current-day");
-currentDay.innerHTML = `Last updated ${days[now.getDay()]} at`;
+currentDay.innerHTML = `Last updated ${day[now.getDay()]} at `;
 
 // Change City
 let form = document.querySelector("form");
@@ -82,3 +106,5 @@ celsiusLink.addEventListener("click", changeUnitToCelsius);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", changeUnitToFahrenheit);
+
+displayForecast();
