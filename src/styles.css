@@ -7,7 +7,7 @@ body {
   border-style: solid;
   border-width: 3px;
   padding: 8px;
-  width: 383px;
+  width: 488px;
   border: 10px 40px 10px 40px;
 }
 .btn {
@@ -16,7 +16,7 @@ body {
   padding: 10px;
   position: fixed;
   top: 100px;
-  left: 500px;
+  left: 605px;
 }
 .btn:hover {
   color: white;
@@ -26,7 +26,7 @@ h1 {
   font-family: PT Mono, monospace;
   font-weight: bold;
   position: fixed;
-  top: 155px;
+  top: 160px;
   font-size: 30px;
 }
 .current-day {
@@ -41,7 +41,7 @@ h1 {
 }
 .current-time {
   position: fixed;
-  left: 370px;
+  left: 375px;
   top: 330px;
   color: #b8bcc4;
   font-weight: bold;
@@ -103,10 +103,12 @@ h1 {
 }
 .info {
   position: fixed;
-  left: 360px;
-  top: 200px;
+  font-size: 17px;
+  font-family: "Oswald", sans-serif;
+  left: 440px;
+  top: 190px;
   background-color: #d8f0ee;
-  padding: 20px 40px;
+  padding: 30px 60px;
   border-radius: 50px;
   color: #7c9fa9;
   list-style: none;
@@ -133,11 +135,13 @@ h1 {
   font-family: "Inconsolata", monospace;
   top: 360px;
   color: #7a7c80;
-  margin-left: 10px;
   font-weight: bold;
+  margin: 0px 0px 40px 0px;
+  text-align: center;
 }
 .forecast-temps {
   font-weight: normal;
+  text-align: center;
 }
 .forecast-temp-min {
   color: #b8bcc4;

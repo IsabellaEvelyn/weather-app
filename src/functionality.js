@@ -54,15 +54,19 @@ function changeUnitToFahrenheit(event) {
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+
   let forecastHTML = `<div class="row">`;
-  forecastHTML =
-    forecastHTML +
-    `
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
       <div class="col-2">
-        <div class="forecast-day">Tue</div>
+        <div class="forecast-day">${day}</div>
         <img
           src="http://openweathermap.org/img/wn/04n@2x.png"
           alt=""
+          class="forecast-img"
           width="75"
         />
         <div class="forecast-temps">
@@ -71,10 +75,10 @@ function displayForecast() {
         </div>
       </div>
   `;
+  });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
 let fahrenheitTemp = null;
 
 // Day
