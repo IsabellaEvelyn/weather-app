@@ -13,7 +13,7 @@ body {
 .btn {
   background-color: #1ab2a8;
   color: #ffffff;
-  padding: 10px;
+  padding: 10px 12px;
   position: fixed;
   top: 100px;
   left: 605px;
@@ -63,8 +63,8 @@ h1 {
   font-weight: bold;
   font-size: 17px;
   position: fixed;
-  left: 305px;
-  top: 210px;
+  left: 315px;
+  top: 213px;
   text-decoration: none;
 }
 .celsius {
@@ -72,8 +72,8 @@ h1 {
   font-weight: bold;
   font-size: 17px;
   position: fixed;
-  left: 333px;
-  top: 210px;
+  left: 343px;
+  top: 213px;
   text-decoration: none;
 }
 .fahrenheit:hover {
@@ -106,7 +106,7 @@ h1 {
   font-size: 17px;
   font-family: "Oswald", sans-serif;
   left: 440px;
-  top: 190px;
+  top: 200px;
   background-color: #d8f0ee;
   padding: 30px 60px;
   border-radius: 50px;

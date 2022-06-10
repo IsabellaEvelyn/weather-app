@@ -1,5 +1,13 @@
 let now = new Date();
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = `4cc8bedd2fbdc11087d0527ebe2205bf`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showWeather(response) {
   fahrenheitTemp = response.data.main.temp;
 
@@ -16,7 +24,7 @@ function showWeather(response) {
   //Wind Speed
   let wind = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = `Wind: ${wind} km/h`;
+  windElement.innerHTML = `Wind: ${wind} mph`;
 
   //Description
   let description = response.data.weather[0].description;
@@ -31,6 +39,8 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
   iconElement.setAttribute("alt", description);
+
+  getForecast(response.data.coord);
 }
 function search(event) {
   event.preventDefault();
@@ -51,7 +61,8 @@ function changeUnitToFahrenheit(event) {
   let tempElement = document.querySelector("#current-temp");
   tempElement.innerHTML = Math.round(fahrenheitTemp);
 }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
@@ -110,5 +121,3 @@ celsiusLink.addEventListener("click", changeUnitToCelsius);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", changeUnitToFahrenheit);
-
-displayForecast();
