@@ -61,35 +61,54 @@ function changeUnitToFahrenheit(event) {
   let tempElement = document.querySelector("#current-temp");
   tempElement.innerHTML = Math.round(fahrenheitTemp);
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  console.log(forecast);
+
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
 
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">
-        <div class="forecast-day">${day}</div>
+        <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
         <img
-          src="http://openweathermap.org/img/wn/04n@2x.png"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt=""
           class="forecast-img"
           width="75"
         />
         <div class="forecast-temps">
-          <span class="forecast-temp-max"> 18° </span>
-          <span class="forecast-temp-min"> 12° </span>
+          <span class="forecast-temp-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <span class="forecast-temp-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span>
         </div>
       </div>
   `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
 let fahrenheitTemp = null;
 
 // Day
@@ -103,7 +122,7 @@ let day = [
   "Saturday",
 ];
 let currentDay = document.querySelector(".current-day");
-currentDay.innerHTML = `Last updated ${day[now.getDay()]} at `;
+currentDay.innerHTML = `Last updated <em>${day[now.getDay()]}</em> at`;
 
 // Change City
 let form = document.querySelector("form");

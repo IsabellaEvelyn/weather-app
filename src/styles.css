@@ -41,14 +41,17 @@ h1 {
 }
 .current-time {
   position: fixed;
-  left: 375px;
+  left: 360px;
   top: 330px;
   color: #b8bcc4;
   font-weight: bold;
   font-family: monospace;
   font-size: 18px;
+  text-decoration: underline;
 }
-
+em {
+  text-decoration: underline;
+}
 .display-temperature {
   font-size: 70px;
   font-weight: bold;
@@ -149,7 +152,7 @@ h1 {
 
 .open-source-code-link {
   position: fixed;
-  top: 490px;
+  top: 485px;
   color: #7a7c80;
 }
 .link-element {
