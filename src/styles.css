@@ -58,34 +58,17 @@ em {
   color: #1ab2a8;
   position: fixed;
   top: 210px;
-  left: 225px;
+  left: 275px;
 }
 
 .fahrenheit {
   color: #7a7c80;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 20px;
   position: fixed;
-  left: 315px;
-  top: 213px;
+  left: 390px;
+  top: 210px;
   text-decoration: none;
-}
-.celsius {
-  color: #7a7c80;
-  font-weight: bold;
-  font-size: 17px;
-  position: fixed;
-  left: 343px;
-  top: 213px;
-  text-decoration: none;
-}
-.fahrenheit:hover {
-  color: #b8bcc4;
-  cursor: default;
-}
-.celsius:hover {
-  color: #b8bcc4;
-  cursor: default;
 }
 .current-weather-icon {
   width: 100px;

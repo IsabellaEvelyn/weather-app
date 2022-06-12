@@ -1,10 +1,8 @@
 let now = new Date();
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = `4cc8bedd2fbdc11087d0527ebe2205bf`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -47,20 +45,10 @@ function search(event) {
   let apiKey = `4cc8bedd2fbdc11087d0527ebe2205bf`;
   let apiUnit = `imperial`;
   let city = document.querySelector("#city-input").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${apiUnit}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
-function changeUnitToCelsius(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#current-temp");
-  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
-  tempElement.innerHTML = Math.round(celsiusTemp);
-}
-function changeUnitToFahrenheit(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#current-temp");
-  tempElement.innerHTML = Math.round(fahrenheitTemp);
-}
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -71,11 +59,8 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-  console.log(forecast);
 
   let forecastElement = document.querySelector("#forecast");
-
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
@@ -134,9 +119,3 @@ currentTime.innerHTML = now.getHours() + ":" + now.getMinutes();
 if (now.getMinutes() < 10) {
   currentTime.innerHTML = now.getHours() + ":0" + now.getMinutes();
 }
-// Change Unit
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", changeUnitToCelsius);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", changeUnitToFahrenheit);
